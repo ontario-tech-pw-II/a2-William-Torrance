@@ -1,12 +1,20 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
 int main(int argc, char const *argv[])
 {
  	ifstream fin;
  	ofstream fout;
 	
-	// check if there are enough arguments
+	if(argc != 3 ){
+		cerr << " Invalid argument count, you must include an input and output file for this program to run." << endl;
+		cerr << " Please try again with the format \"\033[1m" << argv[0] << " inputfile.txt outputfile.txt\033[0m\", then try again." << endl;
+		return 1;
+	}
 	
-	
-	// open the first file
+	fin.open(argv[1]);
  	
 	char c;
 
@@ -16,8 +24,7 @@ int main(int argc, char const *argv[])
  		return 1;
  	}
  	
-
-	// open the second file
+	fout.open(argv[2]);
 	
  	if (fout.fail())
  	{
